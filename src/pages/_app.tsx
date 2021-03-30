@@ -1,7 +1,7 @@
 import Head from "next/head";
 import '../styles/global.css'
 
-const App = ({ Component, pagesProps }) => {
+const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -11,9 +11,10 @@ const App = ({ Component, pagesProps }) => {
         <meta name="keywords" content="Blog, FrontEnd" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Component {...pagesProps} />
+      <Component {...pageProps} />
     </>
   );
 };
+
 
 export default App;
