@@ -38,6 +38,10 @@ export default function Home({ allPostData }) {
                 <a>{title}</a>
               </Link>
               <br />
+              <small className={utilStyles.grayText}>
+                {description}
+              </small>
+              <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>

@@ -50,3 +50,8 @@
 .lightText {
   color: #666;
 }
+
+.grayText {
+  color: #454f59;
+  font-style: italic;
+}
