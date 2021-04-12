@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/lib/post.ts", "src/pages/index.tsx"  ],
+, "src/lib/post.ts", "src/pages/index.tsx", "prismic-configuration.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,12 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import Prismic from "@prismicio/client";
+import { Client } from "../../../prismic-configuration";
 
 import Date from "../../components/Date";
 import Layout from "../../components/Layout";
 import { getAllPostIds, getPostData } from "../../lib/post";
 import utilStyles from "../../styles/utils.module.css";
 
-interface IPostData {
+interface PostDataProps {
   postData: {
     title: string;
     date: string;
@@ -14,9 +16,7 @@ interface IPostData {
   };
 }
 
-export default function Post({
-  postData,
-}:IPostData ) {
+export default function Post({ postData }: PostDataProps) {
   return (
     <Layout isHome={false}>
       <Head>
@@ -34,21 +34,31 @@ export default function Post({
   );
 }
 
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params.id);
+
+  const reactPosts = await Client().query(
+    Prismic.Predicates.at("document.type", "tecnical_content")
+  );
+
+  const nextPosts = await Client().query(
+    Prismic.Predicates.at("document.type", "nextjs")
+  );
+
+  console.log(params)
+
+  return {
+    props: {
+      postData
+    },
+  };
+};
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
 
   return {
     paths,
     fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id);
-  console.log(2);
-  return {
-    props: {
-      postData,
-    },
   };
 };
