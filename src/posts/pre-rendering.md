@@ -8,7 +8,9 @@ tags: ['next', 'react', 'pre-rendering']
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the [Google](https://www.google.com "Google's Homepage")
 for a page.
 
-![alt text](https://www.habilelabs.io/wp-content/uploads/2021/01/server-side.png "Logo Title Text 1")
+<p align="center">
+<img width="600px" alt="Imagem ilustrativa" src="https://tsh.io/wp-content/uploads/fly-images/25386/ssr-ssg-overview-559x355.png" />
+</p>
 
 - **Static Generation** is the pre-rendering method that generates the HTML at **build time**. The pre-rendered HTML is then _reused_ on each request.
 - **Server-side Rendering** is the pre-rendering method that generates the HTML on **each request**.
